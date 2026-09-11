@@ -11,12 +11,12 @@ Jambot MCP is the orchestration layer that bridges conversational AI with real-t
 
 Instead of relying on fragile prompt engineering to output raw JSON, this server uses **Zod v4** to enforce strict musical constraints (e.g., chord duration limits, flat-to-sharp enharmonic normalization, track availability) *before* the command ever reaches the Jamprovise backend. If an LLM hallucinates an invalid chord quality or exceeds global bar limits, the MCP server rejects it immediately with a typed error, allowing the model to self-correct in a tight feedback loop.
 
-### Why this exists (Portfolio Context)
+### Why this exists
 
-This repository demonstrates advanced AI Engineering patterns for Staff/Principal roles:
-1. **Agentic Control Boundaries**: Safely exposing complex domain logic to LLMs using the Model Context Protocol (MCP).
-2. **Deterministic Fallbacks**: Using Zod to enforce schema adherence, replacing legacy string-repair heuristics.
-3. **Context Hydration via Resources**: Dynamically supplying the LLM with read-only state (e.g., available instruments, style presets) to reduce context window bloat and hallucinations.
+This repository extracts the orchestration layer of Jamprovise into an independent, open standard. By decoupling the AI control plane from the core application, we achieve:
+1. **Agentic Control Boundaries**: Safely exposing complex domain logic to LLMs using the Model Context Protocol (MCP), ensuring strict separation of concerns.
+2. **Deterministic Fallbacks**: Using Zod to enforce schema adherence at the protocol boundary, eliminating the need for legacy string-repair heuristics.
+3. **Context Hydration via Resources**: Dynamically supplying the LLM with read-only state (e.g., available instruments, style presets) to reduce context window bloat and eliminate hallucinations.
 
 ---
 

@@ -3,6 +3,7 @@
 > A type-safe Model Context Protocol (MCP) server that provides Large Language Models (LLMs) with domain-constrained, side-effect-safe control over the Jamprovise music synthesis engine.
 
 [![npm version](https://img.shields.io/npm/v/jambot-mcp.svg)](https://npmjs.org/package/jambot-mcp)
+[![Coverage](https://img.shields.io/badge/Coverage-100%25%20%28Schemas%29-brightgreen.svg)](https://github.com/damsarabi/jambot-mcp/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
@@ -43,6 +44,34 @@ Resources provide the LLM with the context it needs to construct valid tool call
 
 To use this server with Claude Desktop, you need a running instance of the Jamprovise backend (or you can point it to production if you have an API key).
 
+### Option 1: Run directly via NPX (Recommended)
+You can run the published NPM package directly without cloning the repository. Add the following to your Claude Desktop configuration file:
+
+- **Mac**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "jambot": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "jambot-mcp"
+      ],
+      "env": {
+        "JAMPROVISE_API_URL": "http://localhost:8000",
+        "JAMPROVISE_API_KEY": "your-dev-api-key",
+        "JAMPROVISE_IS_PRO": "true"
+      }
+    }
+  }
+}
+```
+
+### Option 2: Build from Source
+If you want to modify the server or run it locally from source:
+
 1. Clone and build the project:
    ```bash
    git clone https://github.com/damsarabi/jambot-mcp.git
@@ -51,10 +80,7 @@ To use this server with Claude Desktop, you need a running instance of the Jampr
    npm run build
    ```
 
-2. Add the following to your Claude Desktop configuration file:
-   - **Mac**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
+2. Update your Claude Desktop config to point to the local build:
 ```json
 {
   "mcpServers": {
@@ -73,7 +99,7 @@ To use this server with Claude Desktop, you need a running instance of the Jampr
 }
 ```
 
-3. Restart Claude Desktop. You will now see the hammer icon indicating that the `jambot` tools are available.
+3. Restart Claude Desktop. You will now see the tools are available.
 
 ## 🎥 Demo
 

@@ -2,7 +2,15 @@
   "name": "jambot-mcp",
   "version": "0.1.0",
   "description": "MCP Server for domain-constrained AI control of the Jamprovise music app. Exposes typed tools for sequence generation and transport control via the Model Context Protocol.",
-  "keywords": ["mcp", "model-context-protocol", "music", "ai", "llm", "jamprovise", "claude"],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "music",
+    "ai",
+    "llm",
+    "jamprovise",
+    "claude"
+  ],
   "author": "damsarabi",
   "license": "MIT",
   "homepage": "https://github.com/damsarabi/jambot-mcp",
@@ -12,14 +20,21 @@
   },
   "type": "module",
   "main": "./dist/index.js",
+  "bin": {
+    "jambot-mcp": "./dist/index.js"
+  },
   "types": "./dist/index.d.ts",
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
-    "test": "vitest run",
+    "test": "vitest run --coverage",
     "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build && npm test"
   },
@@ -29,6 +44,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^2.1.9",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0",
     "vitest": "^2.0.0"

@@ -2,7 +2,7 @@
 
 > A type-safe Model Context Protocol (MCP) server that provides Large Language Models (LLMs) with domain-constrained, side-effect-safe control over the Jamprovise music synthesis engine.
 
-[![npm version](https://img.shields.io/npm/v/jambot-mcp.svg)](https://npmjs.org/package/jambot-mcp)
+[![npm version](https://img.shields.io/npm/v/@damsarabi/jambot-mcp.svg)](https://npmjs.org/package/@damsarabi/jambot-mcp)
 [![Coverage](https://img.shields.io/badge/Coverage-100%25%20%28Schemas%29-brightgreen.svg)](https://github.com/damsarabi/jambot-mcp/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -57,7 +57,7 @@ You can run the published NPM package directly without cloning the repository. A
       "command": "npx",
       "args": [
         "-y",
-        "jambot-mcp"
+        "@damsarabi/jambot-mcp"
       ],
       "env": {
         "JAMPROVISE_API_URL": "http://localhost:8000",

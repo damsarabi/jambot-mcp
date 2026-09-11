@@ -103,7 +103,7 @@ If you want to modify the server or run it locally from source:
 
 ## 🎥 Demo
 
-*[Loom Video Placeholder: Insert a 2-minute demo showing Claude Desktop communicating with the local Jamprovise UI via the MCP Stdio transport]*
+*(Coming soon! A Loom video demonstrating the end-to-end flow from Claude Desktop to the live Jamprovise React UI).*
 
 ## Architecture
 
